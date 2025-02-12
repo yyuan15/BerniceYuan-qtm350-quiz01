@@ -1,0 +1,143 @@
+(base) apple@MacBook-Pro-438 ~ % cd data_project
+(base) apple@MacBook-Pro-438 data_project % git clone https://github.com/yyuan15/BerniceYuan-qtm350-quiz01.git
+Cloning into 'BerniceYuan-qtm350-quiz01'...
+remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 8 (delta 0), reused 8 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (8/8), done.
+(base) apple@MacBook-Pro-438 data_project % cd BerniceYuan-qtm350-quiz01
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % touch commands.ipynb
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % jupyter notebook
+[I 2025-02-12 16:14:19.184 LabApp] JupyterLab extension loaded from /Users/apple/opt/anaconda3/lib/python3.9/site-packages/jupyterlab
+[I 2025-02-12 16:14:19.184 LabApp] JupyterLab application directory is /Users/apple/opt/anaconda3/share/jupyter/lab
+[I 16:14:19.188 NotebookApp] Serving notebooks from local directory: /Users/apple/data_project/BerniceYuan-qtm350-quiz01
+[I 16:14:19.188 NotebookApp] Jupyter Notebook 6.4.12 is running at:
+[I 16:14:19.188 NotebookApp] http://localhost:8888/?token=f9cb9241dc6ee9ce107e053ae8c3f5004e5d010282f003f6
+[I 16:14:19.188 NotebookApp]  or http://127.0.0.1:8888/?token=f9cb9241dc6ee9ce107e053ae8c3f5004e5d010282f003f6
+[I 16:14:19.188 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 16:14:19.206 NotebookApp] 
+
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % touch commands.txt
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % rm commands.ipynb
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % git checkout -b feature-update
+
+Switched to a new branch 'feature-update'
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % mkdir reports
+
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % touch reports/summary.md
+
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % echo "This document provides a summary of the project updates." >> reports/summary.md
+
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % git add reports
+
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % git commit -m "Add reports directory"
+
+[feature-update 9e1fcae] Add reports directory
+ 1 file changed, 1 insertion(+)
+ create mode 100644 reports/summary.md
+ 
+ (base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % touch reports/file{1,2,3}.txt
+
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % mv data/raw-data.csv data/input-data.csv
+
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % mkdir -p scripts/backup && cp scripts/*.py scripts/backup/
+
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % rm docs/documentation.md
+
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % git add .
+git commit -m "Update project files"
+
+[feature-update 366396f] Update project files
+ 9 files changed, 1 deletion(-)
+ rename data/raw-data.csv => commands.txt (100%)
+ create mode 100644 data/input-data.csv
+ delete mode 100644 docs/documentation.md
+ create mode 100644 reports/file1.txt
+ create mode 100644 reports/file2.txt
+ create mode 100644 reports/file3.txt
+ create mode 100644 scripts/backup/01-setup.py
+ create mode 100644 scripts/backup/02-data-cleaning.py
+ create mode 100644 scripts/backup/03-data-modelling.py
+ 
+ (base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % ls
+README.md	data		reports
+commands.txt	docs		scripts
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % data
+zsh: command not found: data
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % cd data
+(base) apple@MacBook-Pro-438 data % ls
+input-data.csv
+(base) apple@MacBook-Pro-438 data % git branch
+* feature-update
+  main
+(base) apple@MacBook-Pro-438 data % cd ..
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % touch .gitignore
+
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % echo "temp/" >> .gitignore
+echo "dataset0?.csv" >> .gitignore
+
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % cat .gitignore
+
+temp/
+dataset0?.csv
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % git add .gitignore && git commit -m "Add .gitignore file"
+
+[feature-update eccb74d] Add .gitignore file
+ 1 file changed, 2 insertions(+)
+ create mode 100644 .gitignore
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % git checkout main
+
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % git merge feature-update
+
+Updating 4258465..eccb74d
+Fast-forward
+ .gitignore                          | 2 ++
+ data/raw-data.csv => commands.txt   | 0
+ data/input-data.csv                 | 0
+ docs/documentation.md               | 1 -
+ reports/file1.txt                   | 0
+ reports/file2.txt                   | 0
+ reports/file3.txt                   | 0
+ reports/summary.md                  | 1 +
+ scripts/backup/01-setup.py          | 0
+ scripts/backup/02-data-cleaning.py  | 0
+ scripts/backup/03-data-modelling.py | 0
+ 11 files changed, 3 insertions(+), 1 deletion(-)
+ create mode 100644 .gitignore
+ rename data/raw-data.csv => commands.txt (100%)
+ create mode 100644 data/input-data.csv
+ delete mode 100644 docs/documentation.md
+ create mode 100644 reports/file1.txt
+ create mode 100644 reports/file2.txt
+ create mode 100644 reports/file3.txt
+ create mode 100644 reports/summary.md
+ create mode 100644 scripts/backup/01-setup.py
+ create mode 100644 scripts/backup/02-data-cleaning.py
+ create mode 100644 scripts/backup/03-data-modelling.py
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % git add commands.txt
+
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % git commit -m "Document all commands used so far"
+
+On branch main
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % git push origin main
+
+Username for 'https://github.com': yyuan15
+Password for 'https://yyuan15@github.com': 
+Enumerating objects: 15, done.
+Counting objects: 100% (15/15), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (12/12), 1.24 KiB | 1.24 MiB/s, done.
+Total 12 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/yyuan15/BerniceYuan-qtm350-quiz01.git
+   4258465..eccb74d  main -> main
+
+

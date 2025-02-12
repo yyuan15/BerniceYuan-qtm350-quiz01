@@ -141,3 +141,19 @@ To https://github.com/yyuan15/BerniceYuan-qtm350-quiz01.git
    4258465..eccb74d  main -> main
 
 
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % git add commands.txt
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % git commit -m "Update commands.txt with additional commands"
+[main 14b7b0a] Update commands.txt with additional commands
+ 1 file changed, 143 insertions(+)
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % git push origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 1.83 KiB | 1.83 MiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/yyuan15/BerniceYuan-qtm350-quiz01.git
+   eccb74d..14b7b0a  main -> main
+(base) apple@MacBook-Pro-438 BerniceYuan-qtm350-quiz01 % 
+
